@@ -1,15 +1,56 @@
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 10px;
-}
-
-li{
-    list-style: none;
-}
-
-a{
+/* 和風テキストリンク */
+a {
     text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', serif;
+    /* 和風のフォントを使用 */
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2ca9e1;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    color: #2ca9e1;
+    transform: translateY(-5px);
+    /* 上に浮かせるような効果 */
+}
+
+a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+a.no {
+    text-decoration: none;
+    color: inherit;
+    /* 通常の色を引き継ぐ */
+    font-family: inherit;
+    /* 通常のフォントを引き継ぐ */
+    padding: 0;
+    /* パディングをリセット */
+    transform: none;
+    /* アニメーションを無効にする */
+}
+a.no::before {
+    content: '';  /* 擬似要素の内容を空にして削除 */
+    background-color: transparent;  /* 背景色を透明に */
+    height: 0;  /* 高さを0に */
+    transform: none;  /* アニメーションを無効に */
+    transition: none;  /* トランジションを無効に */
 }

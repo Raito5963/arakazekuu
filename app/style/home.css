@@ -1,0 +1,185 @@
+/* 全体設定：白い背景に青系のアクセント */
+body {
+    background-color: #fff;
+    color: #1d3c73;
+    font-family: 'Yu Gothic UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ホーム画像 */
+.home {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.home img {
+    border: 2px solid #1d3c73;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(29, 60, 115, 0.3);
+}
+
+/* 紹介エリア（PCでは画像と紹介文を横並び／スマホでは縦並び） */
+/* ここでは紹介文の対象としてp要素を利用していますが、必要に応じてラップ用のクラスを付与してください */
+.homeAbout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin: 20px auto;
+}
+
+.homeAbout img {
+    max-width: 100%;
+    border: 2px solid #1d3c73;
+    border-radius: 8px;
+    margin: 10px;
+    order: 1;
+    /* PC時は画像が先 */
+}
+
+.homeAbout h1,h3,h4 {
+    margin: 10px;
+    order: 2;
+    /* PC時はテキストが後 */
+    /* PC時は縦書き */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 1.2rem;
+}
+
+/* 自己紹介セクション */
+.homeIntroduction {
+    margin: 20px auto;
+    padding: 20px;
+    border-top: 2px solid #1d3c73;
+    line-height: 1.6;
+}
+
+.homeIntroduction h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* グリッドレイアウト（プロフィール情報） */
+.homeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.box {
+    background-color: #e8f0fe;
+    border: 1px solid #1d3c73;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(29, 60, 115, 0.2);
+}
+
+.box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #1d3c73;
+    writing-mode: horizontal-tb;
+}
+
+.box p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* ボタン */
+input[type='button'] {
+    background-color: #1d3c73;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px auto;
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.3s ease;
+}
+
+input[type='button']:hover {
+    background-color: #15315b;
+}
+
+/* Youtube動画エリア */
+.homeMovie {
+    margin: 20px 0;
+}
+
+.homeMovie h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* レスポンシブ対応：スマホの場合 */
+@media (max-width: 768px) {
+    .homeAbout {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    /* スマホ時は紹介文を上、画像を下に */
+    .homeAbout h1,h3,h4 {
+        order: 1;
+        /* 横書きに変更 */
+        writing-mode: horizontal-tb;
+    }
+
+    .homeAbout img {
+        order: 2;
+    }
+}
+
+/* 各テキストのサイズ調整 */
+/* 各テキストのサイズ調整（縦書き） */
+.job {
+    font-size: 1.5rem;
+    /* 中サイズ */
+    color: #1d3c73;
+    margin: 0.5rem;
+    text-orientation: upright;
+}
+
+.name {
+    font-size: 2.5rem;
+    /* 大サイズ */
+    font-weight: bold;
+    margin: 0.5rem;
+    text-orientation: upright;
+}
+
+.subname {
+    font-size: 1rem;
+    /* 小サイズ */
+    opacity: 0.8;
+    margin: 0.5rem;
+    text-orientation: upright;
+}
+
+/* 画像を横幅いっぱいに調整 */
+.home img {
+    width: auto;
+    /* 横幅いっぱい */
+    height: auto;
+    /* 高さを自動調整 */
+    border: none;
+    border-radius: 0;
+}
+
+.home{
+    background-color: #007bbb;
+    border: #15315b 1px solid;
+
+}
+
+input{
+    font-weight: bold;
+}

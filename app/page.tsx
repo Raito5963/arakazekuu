@@ -5,15 +5,12 @@ import './style/home.css';
 export default function Page() {
   return (
     <>
-      <div className='homeImg'>
-        <Image src="/home.png" alt="Home Image" height={108} width={192} />{/* 9:16 */}
-      </div>
       <div className='homeAbout'>
         {/* PCの時は改行せず、画像と紹介文を並べる。紹介文は縦書き。スマホの時は改行して、紹介文、画像の順で縦に並べる。紹介文は横書き。 */}
         <Image src="/arakazekuu1.png" alt="嵐風くう 立ち絵" height={580} width={430} />{/* 43:58 */}
-        <p className='job'>空の管理人</p>
-        <p className='name'>嵐風くう</p>
-        <p className='subname'>ärakaze kuü</p>{/* 少し透明にして、縦書きの時は横向きになるように。 */}
+        <h4 className='subname'>ärakaze kuü</h4>{/* 少し透明にして、縦書きの時は横向きになるように。 */}
+        <h3 className='name'>嵐風くう</h3>
+        <h1 className='job'>空の管理人</h1>
       </div>
       <div className='homeIntroduction'>
         {/* ここはmapでPCとスマホで行数を変える。  */}
@@ -43,12 +40,18 @@ export default function Page() {
             <h3>血液型</h3>
             <p>AB型</p>
           </div>
-          <input type='button' value='プロフィール' />
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <a className='no' href="/about">
+            <input type='button' value='プロフィールを見る' />
+          </a>
         </div>
         <div className='homeMovie'>{/* Youtubeの最新の動画から3つ取得するコンポーネントを張る。 */}
           <h2>最新の動画</h2>
           <Youtube channelId='UCaLgv1tEgzejX4FuO3NLPoQ' />
         </div>
+        人類社会のすべての構成員の固有の尊厳と平等で譲ることのできない権利とを承認することは、自由、正義および平和の世界を実現するために不可欠である。
+        人権は、人間の尊厳を尊重し、人間の自由と平等を保障するために、法律として保護されなければならない。
       </div>
     </>
   );

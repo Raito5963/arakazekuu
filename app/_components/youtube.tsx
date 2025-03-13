@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getLatestVideos, Youtube } from '../../lib/youtube';
 import Image from 'next/image';
+import './../style/youtube.css';
 
 interface VideoProps {
     channelId: string;
@@ -19,17 +20,17 @@ const LatestYoutube = ({ channelId }: VideoProps) => {
     }, [channelId]);
 
     return (
-        <div className='youtube' style={{  }}>
-            <div style={{ display: 'flex', gap: '10px' }}>
+        <div className='youtube'>
+            <div className='videoList'>
                 {videos.map((video) => (
                     <a
                         key={video.id}
                         href={`https://www.youtube.com/watch?v=${video.id}`}
                         target='_blank'
                         rel='noopener noreferrer'
-                        style={{ textAlign: 'center' }}
+                        className='videoItem'
                     >
-                        <Image src={video.thumbnail} alt={video.title} height={300} width={400} />
+                        <Image src={video.thumbnail} alt={video.title} height={300} width={400} className='videoThumbnail' />
                         <p>{video.title}</p>
                     </a>
                 ))}

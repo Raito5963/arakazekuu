@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { hina } from "./../utils/font";
 import './style/globals.css';
 import Header from "./_components/header";
 
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={hina.className}>
         <Header />
         {children}
       </body>
