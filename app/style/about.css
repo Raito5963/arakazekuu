@@ -26,6 +26,28 @@
     /* 文章の中央揃え */
 }
 
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        /* 縦並び */
+        align-items: center;
+        /* 中央寄せ */
+    }
+
+    .about img {
+        width: 90%;
+        /* 横幅いっぱいに表示（お好みで調整） */
+        margin-bottom: 20px;
+        /* テキストとの余白 */
+    }
+
+    .aboutTxt {
+        margin-left: 0;
+        /* 左マージンをリセット */
+        max-width: 90%;
+        /* 横幅を画面いっぱいに */
+    }
+}
 
 /* タイトルや本文の基本設定 */
 .about h1 {
