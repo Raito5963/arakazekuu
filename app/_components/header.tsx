@@ -1,4 +1,5 @@
 import './../style/header.css';
+
 import Image from 'next/image';
 
 export default function Header() {
@@ -30,9 +31,6 @@ export default function Header() {
                     }}>
                     <li>
                         <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="/news">News</a>
                     </li>
                     <li>
                         <a href="/gallery">Gallery</a>

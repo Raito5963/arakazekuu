@@ -1,6 +1,6 @@
 import './../style/home.css';
 import './../style/about.css';
-import Image from 'next/image';
+import './../style/globals.css';import Image from 'next/image';
 
 export default function Page() {
     return (

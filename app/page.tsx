@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Youtube from './_components/youtube';
 import './style/home.css';
+import './style/globals.css';
 
 export default function Page() {
   return (
