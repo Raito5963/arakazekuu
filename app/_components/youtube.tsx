@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getLatestVideos, Youtube } from '../../lib/youtube';
 import Image from 'next/image';
 import './../style/youtube.css';
+import './../style/globals.css';
 
 interface VideoProps {
     channelId: string;
