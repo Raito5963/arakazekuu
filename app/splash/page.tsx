@@ -29,4 +29,5 @@ const Splash = ({ onComplete }: SplashProps) => {
     );
 };
 
+// Splash コンポーネントのみをデフォルトエクスポート
 export default Splash;
