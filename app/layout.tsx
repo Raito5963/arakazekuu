@@ -3,7 +3,7 @@ import { hina } from "./../utils/font";
 import "./style/globals.css";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
-import Splash from "./splash/page"; // スプラッシュ画面のインポート
+import Splash from "./_components/splash"; // 新しいパスに変更
 import { useState } from "react";
 
 export default function RootLayout({
