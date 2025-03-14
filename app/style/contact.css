@@ -1,0 +1,120 @@
+body {
+    background-color: #fdf8e4; /* 優しい和風の背景色 */
+    color: #1d3c73; /* 落ち着いたブラウン */
+    margin: 0;
+    padding: 0;
+}
+
+/* フォームのスタイル */
+.contact-form {
+    background-color: #fff;
+    border: 1px solid #1d3c73;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 40px auto;
+    box-shadow: 0 4px 6px #1d3c73;
+}
+
+/* 各入力フィールド */
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1d3c73;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* placeholderのフォント設定 */
+input::placeholder,
+textarea::placeholder {
+    font-family: 'Yu Gothic', sans-serif;
+    color: #7a7a7a; /* 薄い灰色 */
+    font-weight: bold;
+}
+
+/* 中央揃えのためのスタイル */
+.input-container {
+    margin-bottom: 15px;
+    text-align: center; /* inputを中央揃えにする */
+}
+
+/* labelの左寄せ */
+.input-container label {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1d3c73;
+    text-align: left; /* labelを左寄せに */
+    display: block; /* block要素にしてlabelを左寄せ */
+}
+
+.input-container input,
+.input-container textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #1d3c73;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 5px;
+    font-family: 'Yu Gothic', sans-serif;
+    font-weight: bold
+}
+
+/* ボタンのスタイル */
+.button-container {
+    justify-content: right;
+    display: flex;
+    margin: 30px;
+}
+
+.submit-btn {
+    background-color: #1d3c73;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #fff;
+    color: #1d3c73;
+    border: 1px solid #1d3c73;
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #1d3c73;
+    border: none;
+}
+
+/* フォーム周りのデザイン調整 */
+.contact-form:before {
+    content: "連絡先";
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1d3c73;
+}
+
+/* スマホ向け調整 */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 15px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 10px;
+    }
+}

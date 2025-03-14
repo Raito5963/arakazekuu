@@ -6,3 +6,25 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+/* スプラッシュ画面全体を覆うコンテナ */
+.splash-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    /* 他のコンテンツより前面に表示 */
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
+/* フェードアウト時 */
+.splash-container.fade-out {
+    opacity: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}

@@ -1,43 +1,45 @@
-// app/layout.tsx
 "use client";
-import { metadata } from './metadata';  // サーバーサイドのmetadataをインポート
-import type { Metadata } from "next"; // サーバーサイド用の型
 import { hina } from "./../utils/font";
-import './style/globals.css';
+import "./style/globals.css";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
-import Splash from "./splash/page";  // スプラッシュページのインポート
-import { useEffect, useState } from "react";  // クライアントサイドフック
-import { useRouter } from "next/navigation";
+import Splash from "./splash/page"; // スプラッシュ画面のインポート
+import { useState } from "react";
 
-// クライアントサイド処理を管理する
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isSplashCompleted, setSplashCompleted] = useState(false);
-  const router = useRouter();
+  // スプラッシュ画面を表示するかどうか
+  const [showSplash, setShowSplash] = useState(true);
+  // フェードアウト用のクラス付与状態
+  const [fadeSplash, setFadeSplash] = useState(false);
 
-  useEffect(() => {
-    if (isSplashCompleted) {
-      router.push('/');
-    }
-  }, [isSplashCompleted, router]);
+  // Splash の終了通知時に呼ばれるハンドラー
+  const handleSplashComplete = () => {
+    // まずフェードアウトさせる
+    setFadeSplash(true);
+    // CSS のトランジション（1秒）後にスプラッシュ画面を DOM から除去
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 1000);
+  };
 
   return (
     <html lang="en">
       <body className={hina.className}>
-        {!isSplashCompleted ? (
-          <Splash onComplete={() => setSplashCompleted(true)} />  // スプラッシュ画面
-        ) : (
-          <>
-            <Header />
-            {children}
-            <Footer />
-          </>
-        )}
+        {/* メインコンテンツは下に常に配置 */}
+        <Header />
+        {children}
+        <Footer />
 
+        {/* スプラッシュ画面を上に重ねる */}
+        {showSplash && (
+          <div className={`splash-container ${fadeSplash ? "fade-out" : ""}`}>
+            <Splash onComplete={handleSplashComplete} />
+          </div>
+        )}
       </body>
     </html>
   );

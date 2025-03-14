@@ -1,3 +1,4 @@
+// app/_components/header.tsx
 import './../style/header.css';
 
 export default function Header() {
@@ -13,13 +14,16 @@ export default function Header() {
                         margin: '0',
                     }}>
                     <li>
-                        <a href="/gallery">Gallery</a>
+                        <a href="#movie">Movie</a>
                     </li>
                     <li>
-                        <a href="/sns">SNS</a>
+                        <a href="#sns">SNS</a>
                     </li>
                     <li>
-                        <a href="/contact">Contact</a>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
             </nav>

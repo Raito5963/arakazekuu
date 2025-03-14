@@ -1,6 +1,5 @@
-// app/splash/page.tsx
-"use client";  // Splashコンポーネントはクライアントサイド専用
-
+"use client";  // クライアントサイド専用
+import "./../style/globals.css";
 import { useEffect } from "react";
 
 interface SplashProps {
@@ -10,8 +9,8 @@ interface SplashProps {
 const Splash = ({ onComplete }: SplashProps) => {
     useEffect(() => {
         const timer = setTimeout(() => {
-            onComplete();  // スプラッシュが終了したら通知
-        }, 5000);  // 5秒後に終了
+            onComplete();  // 8秒後に終了通知
+        }, 8000);
 
         return () => clearTimeout(timer);
     }, [onComplete]);
