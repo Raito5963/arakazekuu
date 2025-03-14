@@ -7,6 +7,12 @@ body {
     padding: 0;
 }
 
+.homeIntroduction h1 {
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    margin: 10px 0;
+    text-align: center;
+}
+
 /* ホーム画像 */
 .home {
     text-align: center;

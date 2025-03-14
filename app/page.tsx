@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Youtube from './_components/youtube';
+import SNS from './_components/sns';
+import Gallery from './_components/gallery';
 import './style/home.css';
 import './style/globals.css';
 
@@ -14,44 +16,13 @@ export default function Page() {
         <h1 className='job'>空の管理人</h1>
       </div>
       <div className='homeIntroduction'>
-        {/* ここはmapでPCとスマホで行数を変える。  */}
-        <h2>自己紹介</h2>
-        <div className='homeGrid'>
-          <div className='box'>
-            <h3>名前</h3>
-            <p>嵐風くう</p>
-          </div>
-          <div className='box'>
-            <h3>年齢</h3>
-            <p>19歳</p>
-          </div>
-          <div className='box'>
-            <h3>誕生日</h3>
-            <p>2月9日</p>
-          </div>
-          <div className='box'>
-            <h3>身長</h3>
-            <p>178cm</p>
-          </div>
-          <div className='box'>
-            <h3>体重</h3>
-            <p>58kg</p>
-          </div>
-          <div className='box'>
-            <h3>血液型</h3>
-            <p>AB型</p>
-          </div>
-        </div>
-        <div style={{ textAlign: 'center' }}>
-          <a className='no' href="/about">
-            <input type='button' value='プロフィールを見る' />
-          </a>
-        </div>
+        <h1>歌ってみた</h1>
         <div className='homeMovie'>{/* Youtubeの最新の動画から3つ取得するコンポーネントを張る。 */}
-          <h2>最新の動画</h2>
           <Youtube channelId='UCaLgv1tEgzejX4FuO3NLPoQ' />
         </div>
       </div>
+      <SNS />
+      <Gallery />
     </>
   );
 }

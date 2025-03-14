@@ -1,54 +1,79 @@
 /* 全体 */
 .youtube {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     padding: 20px;
+    border: #1d3c73 2px solid;
+    border-radius: 8px;
 }
 
 /* 動画リストのコンテナ */
+/* 動画リストのコンテナ */
+/* 動画リストのコンテナ */
+/* 動画リストのコンテナ */
+/* 動画リストのコンテナ */
+/* 動画リストのコンテナ */
 .videoList {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     justify-content: center;
+
+    /* 2行分の高さを設定してスクロールを強制 */
+    max-height: calc(2 * (300px + 40px)); /* 2行分の高さ（サムネイル高さ + 余白） */
+    overflow-y: scroll;  /* スクロールバーが常に表示されるように変更 */
+    overflow-x: hidden; /* 横スクロールバーを非表示 */
+
+    padding-right: 10px; /* スクロールバーと文字が重ならないように余白を追加 */
+    box-sizing: content-box; /* paddingがレイアウトに影響しないように */
 }
+
+/* スクロールバーの見た目を調整（オプション） */
+.videoList::-webkit-scrollbar {
+    width: 8px; /* スクロールバーの幅 */
+}
+
+.videoList::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* スクロールバーの色 */
+    border-radius: 4px;
+}
+
+.videoList::-webkit-scrollbar-track {
+    background-color: #f5f5f5; /* スクロールバーの背景 */
+}
+
+
+
+
+
 
 /* 各動画アイテム */
 .videoItem {
     text-align: center;
     width: 100%;
-    /* 幅を100%にし、画像やタイトルが収まるように */
     max-width: 400px;
-    /* 最大幅を指定 */
+    margin: 0 auto;
 }
 
 /* サムネイルの画像 */
 .videoThumbnail {
     width: 100%;
-    /* 画像が親要素にフィット */
     height: auto;
-    /* 高さは自動調整 */
     border-radius: 8px;
-    /* 角を丸く */
 }
 
 /* スマホ時の調整 */
 @media (max-width: 768px) {
     .videoList {
-        flex-direction: column;
-        /* アイテムを縦並びに変更 */
-        align-items: center;
-        /* アイテムを中央揃え */
-        flex-wrap: wrap;
+        grid-template-columns: 1fr;
     }
 
     .videoItem {
         width: 90%;
-        /* スマホ時は幅を90%に設定 */
         max-width: 100%;
-        /* 最大幅を100%に */
     }
 
     .videoThumbnail {
         max-width: 100%;
-        /* 画像も100%で収まるように */
     }
 }

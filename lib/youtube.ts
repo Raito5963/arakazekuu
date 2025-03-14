@@ -10,7 +10,7 @@ export interface Youtube {
 
 export async function getLatestVideos(
     channelId: string,
-    maxResults = 3
+    maxResults = 50
 ): Promise<Youtube[]> {
     try {
         if (!API_KEY) {

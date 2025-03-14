@@ -1,6 +1,5 @@
 
 import './../style/home.css';
-import './../style/about.css';
 import './../style/gallery.css';
 
 
