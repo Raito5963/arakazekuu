@@ -8,17 +8,6 @@ body {
     
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画面全体を覆うように */
-    z-index: -1; /* コンテンツが動画の前に表示されるように */
-}
-
-
 .homeIntroduction h1 {
     font-size: clamp(2rem, 5vw, 4.2rem);
     margin: 10px 0;
@@ -44,7 +33,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    margin: 20px auto;
+    margin: 20px;
 }
 
 .homeAbout img {
@@ -69,6 +58,7 @@ body {
 /* 自己紹介セクション */
 .homeIntroduction {
     margin: 20px auto;
+    margin-bottom: 0;
     padding: 20px;
     border-top: 2px solid #1d3c73;
     line-height: 1.6;

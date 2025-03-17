@@ -1,6 +1,7 @@
 import './../style/youtube.css';
 import './../style/globals.css';
 import './../style/gallery.css';
+import './../style/home.css'; // 追加のCSSファイル
 import Image from 'next/image';
 
 export default function Sns() {
@@ -9,7 +10,7 @@ export default function Sns() {
             <div className='gallery' style={{ textAlign: 'center' }}>
                 <h1>SNS</h1>
                 <p>嵐風くうのSNSを紹介します。</p>
-                <div style={{ padding: '2rem', display: 'flex', justifyContent: 'center', textAlign: 'center' ,alignItems: 'center' ,gap: '10px'}}>
+                <div style={{ padding: '2rem', display: 'flex', justifyContent: 'center', textAlign: 'center', alignItems: 'center', gap: '10px' }}>
                     <Image
                         src='/youtubeIcon.jpg'
                         alt='YouTubeアイコン'

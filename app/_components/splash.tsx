@@ -10,7 +10,7 @@ const Splash = ({ onComplete }: SplashProps) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onComplete(); // 8秒後に終了通知
-        }, 8000);
+        }, 4000);
         return () => clearTimeout(timer);
     }, [onComplete]);
 

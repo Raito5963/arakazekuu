@@ -1,7 +1,7 @@
 
 import './../style/home.css';
 import './../style/gallery.css';
-
+import './../style/home.css'; // 追加のCSSファイル
 
 export default function Gallery() {
     return (

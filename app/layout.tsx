@@ -2,7 +2,6 @@
 import { hina } from "./../utils/font";
 import "./style/globals.css";
 import Header from "./_components/header";
-import Footer from "./_components/footer";
 import Splash from "./_components/splash"; // 新しいパスに変更
 import { useState } from "react";
 
@@ -30,10 +29,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={hina.className}>
         {/* メインコンテンツは下に常に配置 */}
-        <Header />
-        {children}
-        <Footer />
-
+        <div className="app-container">
+          <Header />
+          <main className="content">
+            <div className='background'>
+              <video autoPlay loop muted className='background-video'>
+                <source src='/background.mp4' type='video/mp4' />
+              </video>
+            </div>
+            {children}
+          </main>
+          <footer className="footer">
+            <p>©ärakaze kuü All Right Reserved.</p>
+          </footer>
+        </div>
         {/* スプラッシュ画面を上に重ねる */}
         {showSplash && (
           <div className={`splash-container ${fadeSplash ? "fade-out" : ""}`}>

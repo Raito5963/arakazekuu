@@ -14,16 +14,16 @@ export default function Header() {
                         margin: '0',
                     }}>
                     <li>
-                        <a href="#movie">Movie</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="#sns">SNS</a>
+                        <a href="/../sns">SNS</a>
                     </li>
                     <li>
-                        <a href="#gallery">Gallery</a>
+                        <a href="/../gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="/../contact">Contact</a>
                     </li>
                 </ul>
             </nav>
