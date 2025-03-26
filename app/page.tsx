@@ -1,22 +1,38 @@
 // pages/index.tsx
-"use client"; // これを追加
+"use client"; // クライアントコンポーネントとして指定
 
 import { useRouter } from 'next/navigation';
+import { useRef } from 'react';
 
 const HomePage = () => {
   const router = useRouter();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleVideoEnd = () => {
-    // 動画が終わったら次のページに遷移
-    router.push('/home'); // 次のページのURLに変更
+    router.push('/home');
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      const { currentTime, duration } = videoRef.current;
+      // 動画の残りが0.5秒以内なら遷移（Safari対策のfallback）
+      if (duration - currentTime < 0.5) {
+        handleVideoEnd();
+      }
+    }
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'transparent' }}>
       <video
+        ref={videoRef}
         autoPlay
         muted
-        onEnded={handleVideoEnd} // 動画終了時に遷移処理
+        playsInline
+        // 古いSafari向け
+        webkit-playsinline="true"
+        onEnded={handleVideoEnd}
+        onTimeUpdate={handleTimeUpdate}
         style={{
           objectFit: 'cover',
           position: 'absolute',
@@ -24,7 +40,8 @@ const HomePage = () => {
           left: 0,
           width: '100vw',
           height: '100vh',
-          zIndex: 9999, // ヘッダーやフッターより上に表示するため、z-indexを調整
+          zIndex: 9999, // 他のコンテンツより前面に表示
+          backgroundColor: 'transparent',
         }}
       >
         <source src="/Loading.mp4" type="video/mp4" />
