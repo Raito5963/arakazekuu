@@ -1,7 +1,10 @@
-// app/_components/header.tsx
 import './../style/header.css';
 
-export default function Header() {
+interface HeaderProps {
+    onNavigate: (url: string) => void; // 追加: ルーティング関数を受け取る
+}
+
+export default function Header({ onNavigate }: HeaderProps) { // Props を受け取る
     return (
         <header>
             <nav style={{ display: 'flex', justifyContent: 'center' }}>
@@ -14,16 +17,16 @@ export default function Header() {
                         margin: '0',
                     }}>
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('/'); }}>Home</a>
                     </li>
                     <li>
-                        <a href="/../sns">SNS</a>
+                        <a href="/sns" onClick={(e) => { e.preventDefault(); onNavigate('/sns'); }}>SNS</a>
                     </li>
                     <li>
-                        <a href="/../gallery">Gallery</a>
+                        <a href="/gallery" onClick={(e) => { e.preventDefault(); onNavigate('/gallery'); }}>Gallery</a>
                     </li>
                     <li>
-                        <a href="/../contact">Contact</a>
+                        <a href="/contact" onClick={(e) => { e.preventDefault(); onNavigate('/contact'); }}>Contact</a>
                     </li>
                 </ul>
             </nav>
