@@ -17,7 +17,7 @@ export default function Header({ onNavigate }: HeaderProps) { // Props を受け
                         margin: '0',
                     }}>
                     <li>
-                        <a href="/" onClick={(e) => { e.preventDefault(); onNavigate('/'); }}>Home</a>
+                        <a href="/home" onClick={(e) => { e.preventDefault(); onNavigate('/home'); }}>Home</a>
                     </li>
                     <li>
                         <a href="/sns" onClick={(e) => { e.preventDefault(); onNavigate('/sns'); }}>SNS</a>
