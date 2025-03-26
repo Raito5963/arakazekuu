@@ -22,7 +22,7 @@ const Splash = () => {
                     backgroundColor: 'transparent',
                 }}
             >
-                <source src="/b.mov" type="video/quicktime" />
+                <source src="/c.mov" type="video/quicktime" />
                 <source src="/output.webm" type="video/webm" />
             </video>
         </div>
