@@ -46,6 +46,10 @@ body {
     border-radius: 8px;
     margin: 10px;
     order: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     /* PC時は画像が先 */
 }
 
