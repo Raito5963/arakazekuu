@@ -4,7 +4,7 @@ import "./style/globals.css";
 import Header from "./_components/header";
 import Splash from "./_components/splash";
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function RootLayout({
   children,
@@ -13,7 +13,6 @@ export default function RootLayout({
 }>) {
   const [showSplash, setShowSplash] = useState(false); // 初期はスプラッシュ非表示
   const [fadeSplash, setFadeSplash] = useState(false);
-  const pathname = usePathname();
   const router = useRouter();
 
   // ページ遷移時のスプラッシュ表示＆遷移処理
