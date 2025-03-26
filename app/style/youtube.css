@@ -5,6 +5,10 @@
     padding: 20px;
     border: #1d3c73 2px solid;
     border-radius: 8px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* 動画リストのコンテナ */

@@ -39,6 +39,10 @@ html {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
     z-index: 1000;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* 既存のスタイルはそのまま */
