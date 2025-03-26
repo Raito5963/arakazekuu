@@ -38,6 +38,7 @@ body {
 
 .homeAbout img {
     max-width: 100%;
+    height: auto;
     border: 2px solid #1d3c73;
     border-radius: 8px;
     margin: 10px;
