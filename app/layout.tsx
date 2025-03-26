@@ -3,35 +3,46 @@ import { hina } from "./../utils/font";
 import "./style/globals.css";
 import Header from "./_components/header";
 import Splash from "./_components/splash";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [showSplash, setShowSplash] = useState(false); // 初期はスプラッシュ非表示
-  const [fadeSplash, setFadeSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(false); // スプラッシュ表示状態
+  const [fadeSplash, setFadeSplash] = useState(false); // スプラッシュのフェードアウト状態
+  const [isTransitioning, setIsTransitioning] = useState(false); // ページ遷移中かどうかを管理
+  const pathname = usePathname();
   const router = useRouter();
 
   // ページ遷移時のスプラッシュ表示＆遷移処理
   const handlePageChange = (url: string) => {
+    setIsTransitioning(true); // ページ遷移開始フラグをセット
     setShowSplash(true); // スプラッシュを表示
 
     setTimeout(() => {
-      // ページ遷移開始（スプラッシュ表示後すぐ）
       router.push(url); // ページ遷移
 
-      // ページ遷移後にスプラッシュをフェードアウトさせる
+      // 遷移後のスプラッシュのフェードアウト処理
       setTimeout(() => {
-        setFadeSplash(true); // フェードアウト開始
+        setFadeSplash(true); // フェードアウトを開始
         setTimeout(() => {
-          setShowSplash(false); // スプラッシュ非表示
-        }, 1000); // フェードアウト時間（1秒後にスプラッシュ非表示）
-      }, 1000); // ページ遷移後すぐにフェードアウト開始
-    }, 1200); // スプラッシュ表示後1秒経過後にページ遷移開始
+          setShowSplash(false); // スプラッシュを非表示
+          setIsTransitioning(false); // ページ遷移が終了したのでフラグをリセット
+        }, 1000); // フェードアウト後に非表示
+      }, 1000); // 遷移後に少し遅れてフェードアウトを開始
+    }, 1500); // スプラッシュ表示後、1秒後に遷移
   };
+
+  // ページ遷移中でない場合に、スプラッシュをリセットする
+  useEffect(() => {
+    if (!isTransitioning) {
+      setShowSplash(false);
+      setFadeSplash(false);
+    }
+  }, [isTransitioning]);
 
   return (
     <html lang="en">
@@ -45,7 +56,7 @@ export default function RootLayout({
               </video>
             </div>
 
-            {/* ページ遷移のアニメーションは削除 */}
+            {/* ページコンテンツ */}
             <div className="page-transition">
               {children}
             </div>
