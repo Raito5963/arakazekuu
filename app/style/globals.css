@@ -8,17 +8,7 @@
 }
 
 /* スプラッシュ画面全体を覆うコンテナ */
-.splash-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    /* 他のコンテンツより前面に表示 */
-    transition: opacity 1s ease-out;
-    opacity: 1;
-}
+
 
 /* フェードアウト時 */
 .splash-container.fade-out {
@@ -72,19 +62,18 @@ html {
     object-fit: cover; /* 画面全体を覆うように */
     z-index: -1; /* コンテンツが動画の前に表示されるように */
 }
-
 .splash-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: opacity 1s ease-in-out;
-  }
+    z-index: 9999;
+    /* 他のコンテンツより前面に表示 */
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
   
   .splash-container.fade-out {
     opacity: 0;
