@@ -69,7 +69,7 @@ export default function RootLayout({
         {/* スプラッシュ画面 */}
         {showSplash && (
           <div className={`splash-container ${fadeSplash ? "fade-out" : ""}`}>
-            <Splash onComplete={() => {}} />
+            <Splash />
           </div>
         )}
       </body>
