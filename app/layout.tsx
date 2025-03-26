@@ -22,12 +22,18 @@ export default function RootLayout({
     // CSS のトランジション（1秒）後にスプラッシュ画面を DOM から除去
     setTimeout(() => {
       setShowSplash(false);
-    }, 1000);
+    }, 2000);
   };
 
   return (
     <html lang="en">
       <body className={hina.className}>
+                {/* スプラッシュ画面を上に重ねる */}
+                {showSplash && (
+          <div className={`splash-container ${fadeSplash ? "fade-out" : ""}`}>
+            <Splash onComplete={handleSplashComplete} />
+          </div>
+        )}
         {/* メインコンテンツは下に常に配置 */}
         <div className="app-container">
           <Header />
@@ -43,12 +49,6 @@ export default function RootLayout({
             <p>©ärakaze kuü All Right Reserved.</p>
           </footer>
         </div>
-        {/* スプラッシュ画面を上に重ねる */}
-        {showSplash && (
-          <div className={`splash-container ${fadeSplash ? "fade-out" : ""}`}>
-            <Splash onComplete={handleSplashComplete} />
-          </div>
-        )}
       </body>
     </html>
   );

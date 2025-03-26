@@ -18,7 +18,7 @@ const Splash = ({ onComplete }: SplashProps) => {
         <div style={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
             <video
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                src="/Loading.mp4" // /publicディレクトリ内の動画を参照
+                src="/output.webm" // /publicディレクトリ内の動画を参照
                 autoPlay
                 muted
                 playsInline
