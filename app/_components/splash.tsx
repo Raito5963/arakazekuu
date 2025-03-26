@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import "./../style/globals.css";
 
 const Splash = () => {
@@ -22,7 +22,7 @@ const Splash = () => {
                     backgroundColor: 'transparent',
                 }}
             >
-                <source src="/c.mov" type="video/quicktime" />
+                <source src="/output.mov" type="video/quicktime" />
                 <source src="/output.webm" type="video/webm" />
             </video>
         </div>
