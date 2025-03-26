@@ -72,6 +72,7 @@ html {
     /* 他のコンテンツより前面に表示 */
     transition: opacity 1s ease-out;
     opacity: 1;
+    background-color: transparent; /* ここを追加して背景を透明にする */
 }
 
   
@@ -79,6 +80,6 @@ html {
     opacity: 0;
     pointer-events: none; /* フェードアウト時にクリックを通す */
   }
-  
 
-  
+
+
