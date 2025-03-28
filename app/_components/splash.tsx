@@ -22,7 +22,7 @@ const Splash = () => {
                     backgroundColor: 'transparent',
                 }}
             >
-                <source src="/output.mov" type="video/quicktime" />
+                <source src="/cloud_and_water_transparent.mov" type="video/quicktime" />
                 <source src="/output.webm" type="video/webm" />
             </video>
         </div>
