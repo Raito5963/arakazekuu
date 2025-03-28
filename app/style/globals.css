@@ -54,9 +54,15 @@ html {
     to { opacity: 1; }
 }
 
-
-
-
+/* 波が下から上に流れるアニメーション */
+@keyframes waveUp {
+    0% {
+        transform: translateY(100%); /* 画面の下から開始 */
+    }
+    100% {
+        transform: translateY(0); /* 画面の上に到達 */
+    }
+}
 
 .background {
     position: fixed;
@@ -86,5 +92,80 @@ html {
     pointer-events: none; /* フェードアウト時にクリックを通す */
   }
 
+ 
+  .move .animation-bg {
+    background: #75bec2;
+    display: block;
+    content: "";
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
 
 
+
+/* ここは一部抜粋。既存の記述を活かしつつ、.wave の定義を変更 */
+
+.wave-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    overflow: hidden;
+    z-index: 9998; /* 他のコンテンツより前面に表示 */
+}
+
+/* ▼ ここを丸い波から、clip-pathを使った波形へ変更 ▼ */
+
+
+/* アニメーションの定義 */
+@keyframes waveUp {
+    0% {
+        transform: translateY(0%); /* 画面の下からスタート */
+    }
+    50% {
+        transform: translateY(100%); /* 画面上部を越えていく */
+    }
+    100% {
+        transform: translateY(0%); /* 画面の下からスタート */
+    }
+}
+.wave {
+    animation: waveUp 5s infinite;
+}
+.sample {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100vw;
+    height: 200vh;
+    background-color: transparent;
+}
+
+	.sample::before {
+		position:absolute;
+		top:-140%;
+		left:-50%;
+		border-radius:50% 50% / 50% 70%;
+		width:200%;
+		height:200%;
+		content:"";
+		background-color:#4fb6e2;
+		animation:wave linear 4s infinite;
+	}
+
+@keyframes wave {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}
