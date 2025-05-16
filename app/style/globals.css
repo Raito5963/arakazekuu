@@ -47,20 +47,21 @@ html {
 
 /* 既存のスタイルはそのまま */
 
-
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* 波が下から上に流れるアニメーション */
-@keyframes waveUp {
+/* 波が上から下に流れるアニメーション */
+@keyframes waveDown {
     0% {
-        transform: translateY(100%); /* 画面の下から開始 */
+        bottom: 100vh; /* 画面上部の外からスタート */
+    }
+    70% {
+        bottom: 0;
     }
     100% {
-        transform: translateY(0); /* 画面の上に到達 */
+        bottom: -150vh; /* heightより十分小さい値に */
     }
 }
 
@@ -73,6 +74,7 @@ html {
     object-fit: cover; /* 画面全体を覆うように */
     z-index: -1; /* コンテンツが動画の前に表示されるように */
 }
+
 .splash-container {
     position: fixed;
     top: 0;
@@ -86,14 +88,12 @@ html {
     background-color: transparent; /* ここを追加して背景を透明にする */
 }
 
-  
-  .splash-container.fade-out {
+.splash-container.fade-out {
     opacity: 0;
     pointer-events: none; /* フェードアウト時にクリックを通す */
-  }
+}
 
- 
-  .move .animation-bg {
+.move .animation-bg {
     background: #75bec2;
     display: block;
     content: "";
@@ -106,66 +106,78 @@ html {
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-  }
+}
 
-
-
-/* ここは一部抜粋。既存の記述を活かしつつ、.wave の定義を変更 */
-
+/* 波コンテナを上部に配置 */
 .wave-container {
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 300%;
-    overflow: hidden;
-    z-index: 9998; /* 他のコンテンツより前面に表示 */
-}
-
-/* ▼ ここを丸い波から、clip-pathを使った波形へ変更 ▼ */
-
-
-/* アニメーションの定義 */
-@keyframes waveUp {
-    0% {
-        transform: translateY(0%); /* 画面の下からスタート */
-    }
-    50% {
-        transform: translateY(100%); /* 画面上部を越えていく */
-    }
-    100% {
-        transform: translateY(0%); /* 画面の下からスタート */
-    }
-}
-.wave {
-    animation: waveUp 5s infinite;
-}
-.sample {
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
     width: 100vw;
-    height: 200vh;
-    background-color: transparent;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 9998;
+    pointer-events: none;
 }
 
-	.sample::before {
-		position:absolute;
-		top:-140%;
-		left:-50%;
-		border-radius:50% 50% / 50% 70%;
-		width:200%;
-		height:200%;
-		content:"";
-		background-color:#4fb6e2;
-		animation:wave linear 5s infinite;
-	}
+/* 波本体 */
+.wave {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
 
-@keyframes wave {
-	from {
-		transform:rotate(0deg);
-	}
-	to {
-		transform:rotate(360deg);
-	}
+.sample {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: transparent;
+}
+
+.sample::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -40vh;
+    transform: translateX(-50%);
+    width: 200vw;
+    height: 130vh;   /* 200vh → 130vh に変更 */
+    background: #4fb6e2;
+    border-radius: 0;
+    animation: waveDown 3.8s cubic-bezier(.77,0,.18,1) forwards;
+    z-index: 1;
+}
+
+/* スマホ対応：波の形状を調整 */
+@media (max-width: 600px) {
+  .sample {
+    width: 100vw;
+    height: 100vh;
+  }
+  .sample::before {
+    width: 220vw;
+    height: 140vh;   /* 250vh → 140vh に変更 */
+    bottom: -70vh;   /* -130vh → -70vh に変更 */
+    border-radius: 0;
+    animation: waveDown 4s cubic-bezier(.77,0,.18,1) forwards;
+  }
+}
+
+/* 長方形が上下するアニメーション（必要なら追加で） */
+@keyframes rectMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
