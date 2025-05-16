@@ -110,34 +110,63 @@ html {
 
 /* 波コンテナを上部に配置 */
 .wave-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    z-index: 9998;
-    pointer-events: none;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* 波本体 */
-.wave {
+.wave-container .wave {
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sample {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
-    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 必要ならアニメーションもここに */
+}
+
+.sample img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 60vw;
+    max-height: 40vh;
+    pointer-events: none;
+    opacity: 0;
+    animation:
+        showLogo 1s linear 1.1s forwards,   /* 1秒後に表示 */
+        hideLogo 0.5s linear 3.1s forwards;   /* 2秒後に非表示 */
+}
+
+/* 1秒後にフェードイン */
+@keyframes showLogo {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* 2秒後にフェードアウト */
+@keyframes hideLogo {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 
 .sample::before {
@@ -148,7 +177,7 @@ html {
     transform: translateX(-50%);
     width: 200vw;
     height: 130vh;   /* 200vh → 130vh に変更 */
-    background: #4fb6e2;
+    background: #a5e4ff;
     border-radius: 0;
     animation: waveDown 3.8s cubic-bezier(.77,0,.18,1) forwards;
     z-index: 1;
