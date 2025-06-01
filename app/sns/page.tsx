@@ -17,11 +17,11 @@ export default function Sns() {
                         height={100}
                         width={100}
                         style={{
-    borderRadius: '50%',
-    WebkitUserSelect: 'none',
-    MozUserSelect: 'none',
-    msUserSelect: 'none',
-    userSelect: 'none',
+                        borderRadius: '50%',
+                        WebkitUserSelect: 'none',
+                        MozUserSelect: 'none',
+                        msUserSelect: 'none',
+                        userSelect: 'none',
                         }}
                     />
                     <a
