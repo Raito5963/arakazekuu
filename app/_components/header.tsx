@@ -23,6 +23,9 @@ export default function Header({ onNavigate }: HeaderProps) { // Props を受け
                         <a href="/sns" onClick={(e) => { e.preventDefault(); onNavigate('/sns'); }}>SNS</a>
                     </li>
                     <li>
+                        <a href="/news" onClick={(e) => { e.preventDefault(); onNavigate('/news'); }}>News</a>
+                    </li>
+                    <li>
                         <a href="/gallery" onClick={(e) => { e.preventDefault(); onNavigate('/gallery'); }}>Gallery</a>
                     </li>
                     <li>

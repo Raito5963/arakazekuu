@@ -1,8 +1,10 @@
 // app/page.tsx
 import Image from 'next/image';
 import Youtube from './../_components/youtube';
+import NewsPreview from '../_components/NewsPreview';
 import './../style/home.css';
 import './../style/globals.css';
+import './../style/news.css';
 
 export default function Page() {
   return (
@@ -16,6 +18,7 @@ export default function Page() {
         <h3 className='name'>嵐風くう</h3>
         <h1 className='job'>空の管理人</h1>
       </div>
+      <NewsPreview count={3} />
       <div id='movie'>
         <div className='homeIntroduction'>
           <h1>歌ってみた</h1>
