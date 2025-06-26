@@ -13,6 +13,124 @@ header{
     user-select: none;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* スマホ時はnavを左寄せに変更 */
+@media (max-width: 768px) {
+    nav {
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+}
+
+/* デスクトップメニュー */
+.desktop-menu {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+/* ハンバーガーボタン */
+.hamburger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger-line.open:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger-line.open:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* モバイルメニュー */
+.mobile-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu.open {
+    max-height: 300px; /* 十分な高さを設定 */
+    opacity: 1;
+}
+
+.mobile-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.mobile-menu li:last-child {
+    border-bottom: none;
+}
+
+/* モバイルメニュー内のリンクスタイル調整 */
+.mobile-menu a {
+    display: block;
+    width: 100%;
+    padding: 0;
+    transform: none;
+}
+
+.mobile-menu a:hover {
+    transform: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+    
+    .hamburger-button {
+        display: flex;
+    }
+    
+    .mobile-menu {
+        display: flex;
+    }
+}
+
 /* 和風テキストリンク */
 a {
     text-decoration: none;
